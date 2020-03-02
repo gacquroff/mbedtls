@@ -120,6 +120,12 @@ typedef enum
        }                                                    \
     } while( 0 )
 
+#define TEST_ASSERT_RET( ret )                                 \
+    do {                                                    \
+          test_info.ret = ret;                              \
+       }                                                    \
+    while( 0 )
+
 /** Evaluate two expressions and fail the test case if they have different
  * values.
  *
@@ -365,6 +371,7 @@ typedef struct
     const char *filename;
     int line_no;
     unsigned long step;
+    int ret;
 }
 test_info_t;
 static test_info_t test_info;

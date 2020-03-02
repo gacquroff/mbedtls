@@ -55,6 +55,8 @@ void mbedtls_hmac_drbg_init( mbedtls_hmac_drbg_context *ctx )
 {
     memset( ctx, 0, sizeof( mbedtls_hmac_drbg_context ) );
 
+    ctx->reseed_interval = MBEDTLS_HMAC_DRBG_RESEED_INTERVAL;
+
 #if defined(MBEDTLS_THREADING_C)
     mbedtls_mutex_init( &ctx->mutex );
 #endif
@@ -267,8 +269,6 @@ int mbedtls_hmac_drbg_seed( mbedtls_hmac_drbg_context *ctx,
 
     ctx->f_entropy = f_entropy;
     ctx->p_entropy = p_entropy;
-
-    ctx->reseed_interval = MBEDTLS_HMAC_DRBG_RESEED_INTERVAL;
 
     if( ctx->entropy_len == 0 )
     {

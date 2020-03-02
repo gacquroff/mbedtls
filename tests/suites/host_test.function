@@ -469,9 +469,9 @@ static void write_outcome_result( FILE *outcome_file,
                     mbedtls_fprintf( outcome_file, "SKIP;Runtime skip" );
                     break;
                 default:
-                    mbedtls_fprintf( outcome_file, "FAIL;%s:%d:%s",
+                    mbedtls_fprintf( outcome_file, "FAIL;%s:%d:%s;%d",
                                      info->filename, info->line_no,
-                                     info->test );
+                                     info->test, info->ret);
                     break;
             }
             break;

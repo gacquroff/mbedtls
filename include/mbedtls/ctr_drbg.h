@@ -279,6 +279,11 @@ void mbedtls_ctr_drbg_init( mbedtls_ctr_drbg_context *ctx );
  *                      - at least 48 bytes for a 256-bit strength
  *                      (maximum achievable strength when using AES-256).
  *
+ * \note                The reseed interval is
+ *                      #MBEDTLS_CTR_DRBG_RESEED_INTERVAL by default.
+ *                      You can override it by calling
+ *                      mbedtls_ctr_drbg_set_reseed_interval().
+ *
  * \param ctx           The CTR_DRBG context to seed.
  *                      It must have been initialized with
  *                      mbedtls_ctr_drbg_init().

@@ -149,6 +149,10 @@ void mbedtls_hmac_drbg_init( mbedtls_hmac_drbg_context *ctx );
  *                      the entropy source to obtain a nonce
  *                      whose length is half the entropy length.
  *
+ * \note                The reseed interval is #MBEDTLS_HMAC_DRBG_RESEED_INTERVAL
+ *                      by default. Override this value by calling
+ *                      mbedtls_hmac_drbg_set_reseed_interval().
+ *
  * \param ctx           HMAC_DRBG context to be seeded.
  * \param md_info       MD algorithm to use for HMAC_DRBG.
  * \param f_entropy     The entropy callback, taking as arguments the
